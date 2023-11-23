@@ -2,12 +2,7 @@ import multiprocessing
 import random
 import logging
 import time
-
-
-
 logging.basicConfig(level=logging.INFO)
-
-
 class Car:
 
     def __init__(self, model, speed, wheelAngle, position, time):
@@ -16,7 +11,7 @@ class Car:
         self.wheelAngle = wheelAngle
         self.position = position
         self.time = time
-
+        
     def positionCalculator(self):
         self.position += self.speed * (self.wheelAngle / 360)
 
@@ -35,7 +30,6 @@ class Car:
         self.wheelMove()
         self.timeCalculate()
 
-
 class Environment:
     def __init__(self, weather, pedestrian, animal, car, redLight):
         self.weather = weather
@@ -43,7 +37,6 @@ class Environment:
         self.animal = animal
         self.car = car
         self.redLight = redLight
-
 
 class Event(Environment):
 
@@ -102,9 +95,7 @@ class Event(Environment):
 
 
 def simulate_car(cars):
-
     car1, car2 = cars
-
     while True:
         car1.simulation()
         car2.simulation()
@@ -121,15 +112,9 @@ def simulate_car(cars):
         logging.info(f"{car2.model} - Position: {car2.position}, Speed: {car2.speed}")
         event2.eventHandler(event1)
         time.sleep(1)
-
-
-
-
-
 def car_generator():
     while True:
         yield Car("Mustang", 70, 20, 0, 10), Car("Toyota", 80, 20, 0, 15)
-
 
 if __name__ == "__main__":
     car_gen = car_generator()
