@@ -137,6 +137,8 @@ if __name__ == "__main__":
 
     with multiprocessing.Pool(2) as pool:
         pool.map(simulate_car, [cars])
+#You can exit with terminal exit key or exiting terminal or directly stop in IDE's I could not find exiting way with keyboardInterrupt or with any other way because of multiprocessing if you know how to exit in multiprocessing  pleasee share.
+
 
 
 
